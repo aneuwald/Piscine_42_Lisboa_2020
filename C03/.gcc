@@ -1,0 +1,60 @@
+norminette -R CheckForbiddenSourceHeader
+
+alias norm="norminette -R CheckForbiddenSourceHeader"
+
+gcc -Wall -Wextra -Werror ft && ./a.out && rm a.out
+
+
+int main()
+{
+    char str1[] = "abcd", str2[] = "abCd", str3[] = "abcd";
+
+    printf("strcmp(str1, str2) = %d\n", strcmp(str1, str2));
+    printf("strcmp(str1, str3) = %d\n", ft_strcmp(str1, str2));
+
+    printf("strcmp(str1, str2) = %d\n", strcmp(str1, str3));
+    printf("strcmp(str1, str3) = %d\n", ft_strcmp(str1, str3));
+
+    return 0;
+}
+
+int main()
+{
+    char src[] = "Paola";
+	char dest[80] = "Alexandre";
+
+    printf("strcat(dest, src) = %s\n", strcat(dest, src));
+    printf("ft_strcat(dest, src) = %s\n", ft_strcat(dest, src));
+
+}
+
+int main()
+{
+    char src[] = "Paola";
+	char dest[80] = "Alexandre";
+
+    printf("ft_strncat(dest, src) = %s\n", ft_strncat(dest, src, 5));
+    printf("strncat(dest, src) = %s\n", strncat(dest, src, 5));
+
+}
+
+int main()
+{
+    char	src[] = "O teste feito pela Paola Funcionou!";
+	char	to_find[] = "";
+
+    printf("strstr(src, to_find) = %s\n", strstr(src, to_find));
+    printf("ft_strstr(src, to_find) = %s\n", ft_strstr(src, to_find));
+
+}
+
+int main()
+{
+    char src[] = "Paola Batista2727";
+	char dest[80] = "Alexandre";
+	char dest2[80] = "Alexandre";
+
+    printf("strlcat(dest2, src, 5) = %lu\n", strlcat(dest2, src, 15));
+    printf("ft_strlcat(dest, src, 5) = %u\n", ft_strlcat(dest, src, 15));
+
+}

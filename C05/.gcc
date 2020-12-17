@@ -1,0 +1,29 @@
+norminette -R CheckForbiddenSourceHeader
+
+alias norm="norminette -R CheckForbiddenSourceHeader ex*"
+
+gcc -Wall -Wextra -Werror ft && ./a.out && rm a.out
+
+alias test="gcc -Wall -Wextra -Werror main.c ex*/* && ./a.out && rm a.out"
+
+
+long int	find_sqrt(int nb, int prev_nbr)
+{
+	//printf("\n nb:%ld\t prev:%ld\t nbs/prev:%ld", nb, prev_nbr, nb / prev_nbr);
+	if ((nb / prev_nbr) < prev_nbr)
+		return (find_sqrt(nb, prev_nbr / 2));
+	if ((nb / prev_nbr) == prev_nbr)
+		return (prev_nbr);
+	else if ((prev_nbr * prev_nbr) > nb)
+		return (0);
+	return (find_sqrt(nb, prev_nbr + 1));
+}
+
+int	ft_sqrt(int nb)
+{
+	if (nb <= 0)
+		return (0);
+	if (nb == 1)
+		return (1);
+	return (find_sqrt(nb, nb / 2));
+}

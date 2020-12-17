@@ -1,0 +1,6 @@
+norminette -R CheckForbiddenSourceHeader
+
+alias norm="norminette -R CheckForbiddenSourceHeader"
+
+gcc -Wall -Wextra -Werror ft && ./a.out && rm a.out
+

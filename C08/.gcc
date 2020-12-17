@@ -1,0 +1,25 @@
+norminette -R CheckForbiddenSourceHeader
+
+alias norm="norminette -R CheckForbiddenSourceHeader"
+alias normh="norminette -R CheckDefine"
+
+gcc -Wall -Wextra -Werror ft && ./a.out && rm a.out
+
+alias test="gcc -Wall -Wextra -Werror main.c ex*/* && ./a.out && rm a.out"
+
+
+int main(int argc, char **argv)
+{
+	int i = 0;
+	t_stock_str		*stock_results = ft_strs_to_tab(0, argv);
+
+	while (stock_results[i].str)
+	{
+		printf("[%d]:\n", i);
+		printf("size: %d \n", stock_results[i].size);
+		printf("str: %s \n", stock_results[i].str);
+		printf("copy: %s \n", stock_results[i].copy);
+		printf("\n");
+		i++;
+	}
+}

@@ -1,0 +1,56 @@
+norminette -R CheckForbiddenSourceHeader
+
+alias norm="norminette -R CheckForbiddenSourceHeader"
+
+gcc -Wall -Wextra -Werror ft && ./a.out
+
+
+int main()
+{
+
+	int var;
+	int *nbr1 = &var;
+	int **nbr2 = &nbr1;
+	int ***nbr3 = &nbr2;
+	int ****nbr4 = &nbr3;
+	int *****nbr5 = &nbr4;
+	int ******nbr6 = &nbr5;
+	int *******nbr7 = &nbr6;
+	int ********nbr8 = &nbr7;
+	int *********nbr = &nbr8;
+
+	var = 10;
+
+	printf("Variavel antes da funcao: %i", var);
+
+	ft_ultimate_ft(nbr);
+
+	printf("Variavel depois da funcao: %i", var);
+}
+
+
+void ft_rev_int_tab(int *tab, int size);
+
+int	main()
+{
+	int 	size = 4;
+	int 	i = -1;
+	int 	matrix[4];
+
+	matrix[0] = 1;
+	matrix[1] = 2;
+	matrix[2] = 3;
+	matrix[3] = 4;
+
+	i = -1;
+	while (++i < size)
+      	printf("%i ", matrix[i]);
+      	printf("\n\n");
+
+	ft_rev_int_tab(&matrix[0], size);
+
+	i = -1;
+	while (++i < size)
+      	printf("%i ", matrix[i]);
+
+}

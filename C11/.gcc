@@ -1,0 +1,8 @@
+
+
+alias norm="norminette -R CheckForbiddenSourceHeader ex*/*.c"
+
+gcc -Wall -Wextra -Werror *.c && ./a.out && rm a.out
+
+alias test="gcc -Wall -Wextra -Werror main.c ex00/* ex01/* ex02/* ex03/* ex04/* ex06/* ex07/* && ./a.out && rm a.out"
+

@@ -1,0 +1,141 @@
+norminette -R CheckForbiddenSourceHeader
+
+alias norm="norminette -R CheckForbiddenSourceHeader"
+
+gcc -Wall -Wextra -Werror ft && ./a.out && rm a.out
+
+
+int main()
+{
+
+	int var;
+	int *nbr1 = &var;
+	int **nbr2 = &nbr1;
+	int ***nbr3 = &nbr2;
+	int ****nbr4 = &nbr3;
+	int *****nbr5 = &nbr4;
+	int ******nbr6 = &nbr5;
+	int *******nbr7 = &nbr6;
+	int ********nbr8 = &nbr7;
+	int *********nbr = &nbr8;
+
+	var = 10;
+
+	printf("Variavel antes da funcao: %i", var);
+
+	ft_ultimate_ft(nbr);
+
+	printf("Variavel depois da funcao: %i", var);
+}
+
+
+void ft_rev_int_tab(int *tab, int size);
+
+int	main()
+{
+	int 	size = 4;
+	int 	i = -1;
+	int 	matrix[4];
+
+	matrix[0] = 1;
+	matrix[1] = 2;
+	matrix[2] = 3;
+	matrix[3] = 4;
+
+	i = -1;
+	while (++i < size)
+      	printf("%i ", matrix[i]);
+      	printf("\n\n");
+
+	ft_rev_int_tab(&matrix[0], size);
+
+	i = -1;
+	while (++i < size)
+      	printf("%i ", matrix[i]);
+
+}
+
+int main()
+{
+	unsigned int size = 4;
+	int i = 0;
+	char src[20] = "String Source";
+	char dest[20] = "casdasdasdads";
+
+	char *test = ft_strncpy(dest, src, size);
+
+	while (test[i] != '\0')
+	{
+		write(1, &test[i], 1);
+		i++;
+	}
+
+}
+
+int	main(void)
+{
+	char *str1 = "MeuTeste";
+	char *str2 = "M3uT3st3";
+	char *str3 = "MeuTeste3";
+	char str4 = '\0';
+
+	printf("str1 result: %i\n", ft_str_is_alpha(str1));
+	printf("str2 result: %i\n", ft_str_is_alpha(str2));
+	printf("str3 result: %i\n", ft_str_is_alpha(str3));
+	printf("str4 result: %i\n", ft_str_is_alpha(&str4));
+}
+
+int main()
+{
+	char str[]="testando o meu AlgoRitmoQue tem que 42funcionar 42FUNCIONA? s"; 
+
+	char *teste = ft_strcapitalize(str);
+
+	printf("%s", teste);
+}
+
+
+int main()
+{
+	int size = 4;
+	char  dest[20];
+	char src[] = "Testando 1233";
+
+	printf("Orig func: %lu\n", strlcpy(&dest[0], src, size));
+	printf("o: %s\n", dest);
+	printf("My func: %i\n", ft_strlcpy(&dest[0], src, size));
+	printf("o: %s\n", dest);
+
+
+	printf("%s", &dest[0]);
+}
+
+int		main(void)
+{
+	char *teste = "Teste\r mudando characteres.\n\f\t\v\b";
+	char *teste2 = "Oi \nvoce esta bem?";
+
+	write(1, "Results 1: \n", 11);
+	ft_putstr_non_printable(teste);
+
+	write(1, "\n\nResults 2: \n", 15);
+	ft_putstr_non_printable(teste2);
+
+	return (0);
+}
+
+void *ft_print_memory(void *addr, unsigned int size);
+
+int ft_strlen(char *s)
+{
+	int i = 0;
+	for (; s[i]; i++)
+		;
+	return i;
+}
+
+int main()
+{
+	char str[] = "Uma frase qualquer tenho que converter ela em um local da memoria";
+	ft_print_memory(str, ft_strlen(str));
+}
